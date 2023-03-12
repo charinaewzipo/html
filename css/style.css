@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #f88609;
+  --second-color: #e98e25;
+  --text-color: #0e0e0e;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap");
 * {
   font-family: "Kanit", sans-serif;
@@ -5,7 +11,6 @@
 
 html,
 body {
-  background-image: url("https://img.gta5-mods.com/q95/images/fake-money-plant/603813-20170221172826_1.jpg");
   padding: 0px;
   margin: 0px;
   width: 100%;
@@ -20,54 +25,45 @@ h5,
 h6 {
   color: white;
 }
+
 @property --border-angle {
   syntax: "<angle>";
   inherits: true;
   initial-value: 0turn;
 }
+
 .container {
+  background-image: url("https://img.gta5-mods.com/q95/images/fake-money-plant/603813-20170221172826_1.jpg");
   display: flex;
   width: 100vw;
   height: 100vh;
   color: white;
 }
+
 .container .score-container {
   position: absolute;
-  top: 10%;
-  right: 15%;
+  top: 20%;
+  right: 1%;
   width: 15%;
-  height: 60%;
+  height: 50%;
   padding: 15px;
 }
+
 .container .score-container .wrapper {
   padding: 15px;
   display: flex;
   width: 100%;
   height: 100%;
-  --borderWidth: 3px;
   position: relative;
-  --border-size: 3px;
-  --border-angle: 0turn;
-  background-image: conic-gradient(
-    from var(--border-angle),
-    rgba(15, 15, 15,0.7),
-    rgb(34, 25, 17) 50%,
-    rgba(15, 15, 15,0.7)
-  ),
-  conic-gradient(from var(--border-angle), transparent 25%, orange, #0000);
-  background-size: calc(100% - var(--border-size) * 2) calc(100% - var(--border-size) * 2), cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  backdrop-filter: blur(10px);
-  animation: bg-spin 6s linear infinite;
 }
+
 @keyframes bg-spin {
   to {
     --border-angle: 1turn;
   }
 }
+
 .container .score-container .wrapper .cards {
-  
   width: 100%;
   height: 100%;
   display: flex;
@@ -76,6 +72,7 @@ h6 {
   justify-content: center;
   gap: 10px;
 }
+
 .container .score-container .wrapper .cards .card {
   height: 25%;
   width: 100%;
@@ -84,41 +81,177 @@ h6 {
   position: relative;
   justify-content: center;
 }
+
 .container .score-container .wrapper .cards .card .square {
-  width: 100%;
+  width: 50%;
+  left: 50%;
   position: absolute;
-  height: 70%;
-  box-shadow: rgb(0, 0, 0) 0px 5px 15px 0px;
+  height: 60%;
+  box-shadow: rgb(235, 143, 5) 0px 5px 15px 0px;
 }
+
 .container .score-container .wrapper .cards .card .icon {
   display: flex;
   align-items: center;
   justify-content: start;
-  width: 60%;
+  width: 100%;
   height: 100%;
   color: #000 !important;
-  background: white;
+  background: rgba(255, 255, 255);
+  margin-right: -25px;
   transform: perspective(800px) rotateY(25deg) scale(0.8) rotateX(10deg);
   transition: 0.7s ease all;
+  text-align: left;
 }
-.container .score-container .wrapper .cards .card .icon h3{
-  color: #000 !important;
+/* Animate Background Image */
+
+@keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
+.container .score-container .wrapper .cards .card .icon .text {
+  width: 100%;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  /* Clip Background Image */
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+  animation: aitf 80s linear infinite;
+  /* Activate hardware acceleration for smoother animations */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 .container .score-container .wrapper .cards .card .icon img {
   width: 50%;
 }
+
 .container .score-container .wrapper .cards .card .score {
   width: 40%;
   margin-left: 0px;
   height: 50%;
-  color: orange;
+  color: var(--primary-color);
   font-size: 30px;
   transform: rotateX(10deg) rotateZ(0);
   transform-style: preserve-3d;
   border-radius: 50px;
-  box-shadow: 1px 1px 0px 0px orange, -1px 0 28px 0 rgba(34, 33, 81, 0.01), 28px 28px 28px 0 rgba(34, 33, 81, 0.25);
+  box-shadow: 1px 1px 0px 0px var(--primary-color), -1px 0 28px 0 rgba(34, 33, 81, 0.01),
+    28px 28px 28px 0 rgba(34, 33, 81, 0.25);
   transition: 0.4s ease-in-out transform, 0.4s ease-in-out box-shadow;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.clock {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  /* background: rgba(0, 0, 0, 0.5); */
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+  padding: 0 30px;
+  /* box-shadow: -3px -3px 7px rgba(255, 255, 255, 0.05), 3px 3px 5px rgba(0, 0, 0, 0.5); */
+}
+
+.clock .display {
+  font-size: 60px;
+  color: var(--second-color);
+  letter-spacing: 5px;
+  font-family: "Orbitron", sans-serif;
+}
+
+.base-timer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: var(--primary-color);
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+.wrapper-text {
+  display: grid;
+  place-content: center;
+  background-color: var(--background-color);
+  font-family: "Oswald", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+.wrapper-text > div {
+  grid-area: 1/1/-1/-1;
+}
+.top {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+}
+.bottom {
+  clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+  color: var(--primary-color);
+  background: -webkit-linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background: linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transform: translateX(-0.05em);
 }
