@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap");
+* {
+  font-family: "Kanit", sans-serif;
+}
+
+html,
+body {
+  background-image: url("https://img.gta5-mods.com/q95/images/fake-money-plant/603813-20170221172826_1.jpg");
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+}
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+}
+.container .score-container {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 15%;
+  height: 60%;
+  padding: 15px;
+}
+.container .score-container .wrapper {
+  padding: 15px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  --borderWidth: 3px;
+  position: relative;
+  --border-size: 3px;
+  --border-angle: 0turn;
+  background-image: conic-gradient(
+    from var(--border-angle),
+    rgba(15, 15, 15,0.7),
+    rgb(34, 25, 17) 50%,
+    rgba(15, 15, 15,0.7)
+  ),
+  conic-gradient(from var(--border-angle), transparent 25%, orange, #0000);
+  background-size: calc(100% - var(--border-size) * 2) calc(100% - var(--border-size) * 2), cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(10px);
+  animation: bg-spin 6s linear infinite;
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+.container .score-container .wrapper .cards {
+  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.container .score-container .wrapper .cards .card {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+.container .score-container .wrapper .cards .card .square {
+  width: 100%;
+  position: absolute;
+  height: 70%;
+  box-shadow: rgb(0, 0, 0) 0px 5px 15px 0px;
+}
+.container .score-container .wrapper .cards .card .icon {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 60%;
+  height: 100%;
+  color: #000 !important;
+  background: white;
+  transform: perspective(800px) rotateY(25deg) scale(0.8) rotateX(10deg);
+  transition: 0.7s ease all;
+}
+.container .score-container .wrapper .cards .card .icon h3{
+  color: #000 !important;
+}
+.container .score-container .wrapper .cards .card .icon img {
+  width: 50%;
+}
+.container .score-container .wrapper .cards .card .score {
+  width: 40%;
+  margin-left: 0px;
+  height: 50%;
+  color: orange;
+  font-size: 30px;
+  transform: rotateX(10deg) rotateZ(0);
+  transform-style: preserve-3d;
+  border-radius: 50px;
+  box-shadow: 1px 1px 0px 0px orange, -1px 0 28px 0 rgba(34, 33, 81, 0.01), 28px 28px 28px 0 rgba(34, 33, 81, 0.25);
+  transition: 0.4s ease-in-out transform, 0.4s ease-in-out box-shadow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
